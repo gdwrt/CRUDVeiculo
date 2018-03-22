@@ -1,0 +1,56 @@
+/* TOGGLE */
+.ge-toggle{
+	float:right;
+	margin-right:15px;
+	line-height:50px;
+	font-size:1.8em;
+	
+	color:#333;
+}
+/* MENU */
+.ge-menu{
+	font-size: 1.2em;
+}
+
+.ge-menu > ul {
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+
+.ge-menu > ul a {
+	display: block; 
+	padding: 10px 15px;
+	
+	text-decoration: none;
+	font-weight: 500;
+	color: #cdcaca;
+}
+}
+.ge-menu > ul i {
+	margin-right: 6px; 
+}
+.ge-menu > ul a:hover, .ge-menu > ul a:focus{
+	background-color: rgba(255, 255, 255, .06);
+}
+
+.ge-menu > ul .is-selected{
+	border-left: 3px solid #dee8dce0;
+	text-shadow: rgba(0, 0, 0, .25) 0 -1px 0;
+	background-color: rgba(255, 255, 255, .06);
+	box-shadow: rgba(0, 0, 0, .25) 0 1px 0, inset rgba(255, 255, 255, .16) 0   1px 0;
+}
+.ge-menu > ul .is-selected a{
+	margin-left:-3px;
+	text-shadow: rgba(0, 0, 0, .25) 0 -1px 0;
+	background-color: rgba(255, 255, 255, .06);
+	box-shadow: rgba(0, 0, 0, .25) 0 1px 0, inset rgba(255, 255, 255, .16) 0   1px 0;
+}
+/* PAGE TITLE*/
+.ge-page-title{
+	margin: 0;
+	padding: 20px;
+	font-size: 1.5em;
+	color: #373737;
+}
+

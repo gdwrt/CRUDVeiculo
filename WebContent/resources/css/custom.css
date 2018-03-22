@@ -1,0 +1,131 @@
+@import
+	url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900);
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	font-family: Rubik, sans-serif;
+}
+/*TABVIEW*/
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
+	color: #555;
+}
+
+@media ( max-width : 640px) {
+	.ui-tabs.ui-tabs-top>.ui-tabs-nav li {
+		width: 100%;
+	}
+}
+
+/* PANELGRID*/
+.ui-panelgrid.panelgrid-noborder .ui-grid-responsive {
+	border: none;
+}
+
+@media ( max-width : 640px) {
+	.ui-panelgrid.panelgrid-noborder .ui-grid-responsive .ui-grid-row {
+		border: none;
+	}
+}
+
+/*CHECKBOX*/
+.ui-chkbox .ui-chkbox-label {
+	margin: 2px 16px 0 8px !important;
+}
+
+/* MESSAGES */
+.ui-messages .ui-messages-info, .ui-messages-warn, .ui-messages-error,
+	.ui-messages-fatal {
+	font-size: 13px !important;
+	background-color: #fafafa !important;
+	border: 0 !important;
+	border-left: 5px solid #d5d5d5 !important;
+	padding: 10px !important;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, .12) !important;
+	-webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, .12) !important;
+	-moz-box-shadow: 0 2px 0 rgba(0, 0, 0, .12) !important;
+}
+
+.ui-messages .ui-messages-error, .ui-messages .ui-messages-fatal {
+	border-left-color: #f4868b !important;
+	color: #d35452 !important;
+}
+
+.ui-messages .ui-messages-info {
+	border-left-color: #9ccc65 !important;
+	color: #6bab21;
+}
+
+.ui-messages .ui-messages-warn {
+	border-left-color: #f4d877 !important
+}
+
+.ui-messages .ui-messages-info .ui-messages-info-icon {
+	background: none;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-indent: 0px !important;
+	text-align: center;
+	font-size: 24px;
+	margin-top: -5px;
+	color: #8cc44c;
+}
+
+.ui-messages .ui-messages-info .ui-messages-info-icon:before {
+	content: "\f05a";
+	font-family: FontAwesome;
+}
+
+.ui-messages .ui-messages-error .ui-messages-error-icon, .ui-messages .ui-messages-fatal .ui-messages-fatal-icon
+	{
+	background: none;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-indent: 0px !important;
+	text-align: center;
+	font-size: 24px;
+	margin-top: -5px;
+	color: #f48183;
+}
+
+.ui-messages .ui-messages-error .ui-messages-error-icon:before,
+	.ui-messages .ui-messages-fatal .ui-messages-fatal-icon:before {
+	content: "\f06a";
+	font-family: FontAwesome;
+}
+
+.ui-messages .ui-messages-warn .ui-messages-warn-icon {
+	background: none;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-indent: 0px !important;
+	text-align: center;
+	font-size: 24px;
+	margin-top: -5px;
+	color: #e7b917;
+}
+
+.ui-messages .ui-messages-warn .ui-messages-warn-icon:before {
+	content: "\f071";
+	font-family: FontAwesome;
+}
+
+.ui-messages-info-summary, .ui-messages-warn-summary, 
+.ui-messages-error-summary, .ui-messages-fatal-summary, 
+.ui-message-info-summary, .ui-message-warn-summary, 
+.ui-message-error-summary, .ui-message-fatal-summary {
+    font-weight: 500 !important;
+}

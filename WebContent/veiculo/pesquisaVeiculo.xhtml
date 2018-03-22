@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="content">
+
+		<p:panel header="Pesquisa de veiculos">
+			<h:form id="frmPesquisar">
+
+
+			<p:toolbar id="toolbar" style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:button id="btnNovo" value="Novo"
+						outcome="cadastroVeiculo.xhtml" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+
+			<p:dataTable id="veiculosTable" var="veiculo"
+				value="#{pesquisaVeiculo.veiculosLazy}" paginator="true"
+				rows="5" paginatorPosition="bottom"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rowsPerPageTemplate="5,10,15" lazy="true">
+
+					
+				<p:column headerText="Código" sortBy="#{veiculo.id}" filterBy="#{veiculo.id}"
+ 					style="text-align: center; width: 100px;padding: 0px 20px 0px 10px;">
+					<h:outputText value="#{veiculo.id}" />
+				</p:column>
+
+				<p:column headerText="Placa" sortBy="#{veiculo.placa}"
+					filterBy="#{veiculo.placa}">
+					<h:outputText value="#{veiculo.placa}" />
+				</p:column>
+				<p:column headerText="Marca" filterBy="#{veiculo.marca}" sortBy="#{veiculo.marca}">
+					<h:outputText value="#{veiculo.marca}" />
+				</p:column>
+				<p:column headerText="Descrição" filterBy="#{veiculo.descricao}" sortBy="#{veiculo.descricao}">
+					<h:outputText value="#{veiculo.descricao}" />
+				</p:column>
+				
+				<p:column headerText="Descrição" filterBy="#{veiculo.categoria.name()}" sortBy="#{veiculo.categoria.name()}">
+					<h:outputText value="#{veiculo.categoria.name()}" />
+				</p:column>
+				
+				<p:column style="width: 100px; text-align: center" > 
+
+					<p:commandButton icon="ui-icon-pencil" title="Editar"
+						action="#{pesquisaVeiculo.redirecionarEditarVeiculo(veiculo)}"
+						process="@this">
+
+					</p:commandButton>
+
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						action="#{pesquisaVeiculo.remover(veiculo)}"
+						process="@this" update=":frmPesquisar:veiculosTable">
+
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Não" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				<p:commandButton value="Sim" type="button" process="@form"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+					action="#{pesquisaVeiculo.remover()}"
+					update=":frmPesquisar:veiculosTable" />
+
+			</p:confirmDialog>
+
+		</h:form>
+		</p:panel>
+		
+	</ui:define>
+
+</ui:composition>

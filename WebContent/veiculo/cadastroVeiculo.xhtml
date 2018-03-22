@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="content">
+	
+		<f:metadata>
+			<f:viewAction action="#{cadastroVeiculoBean.alterar()}"/>
+		</f:metadata>
+		
+		<p:panel header="Cadastro de veiculo">
+			<h:form id="frm">
+	
+				<p:toolbar>
+					<p:toolbarGroup>
+						<p:commandButton id="btnSalvar" value="Salvar"
+							action="#{cadastroVeiculoBean.salvar()}" update="@form" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:button id="btnPesquisar" value="Pesquisar" outcome="pesquisaVeiculo.xhtml"  />
+					</p:toolbarGroup>
+				</p:toolbar>
+				
+				<p:messages autoUpdate="true" closable="true" />
+	
+				<!-- deixa layout fluido -->
+				<div class="ui-fluid">
+					<!-- o layout grid deixa o panelgrid responsivo -->
+	
+					<p:tabView>
+						<p:tab title="Dados básicos">
+							<p:panelGrid columns="4" layout="grid"
+								columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+								styleClass="panelgrid-noborder" style="margin-top:10px">
+					
+								<p:outputLabel for="placa" value="Placa" />
+								<p:inputText id="placa" required="true" requiredMessage="Placa obrigatória"
+									value="#{cadastroVeiculoBean.veiculo.placa}" />
+	
+								<p:outputLabel for="marca" value="Marca" />
+								<p:inputText id="marca"
+									value="#{cadastroVeiculoBean.veiculo.marca}" />
+	
+								<p:outputLabel for="descricao" value="Descrição" />
+								<p:inputText id="descricao"
+									value="#{cadastroVeiculoBean.veiculo.descricao}" />
+	
+								<p:outputLabel for="categoria" value="Categoria" />
+								<p:selectOneMenu id="categoria"
+									required="true" requiredMessage="Categoria Obrigatório"
+									value="#{cadastroVeiculoBean.veiculo.categoria}">
+									<f:selectItem itemDisabled="true" itemLabel="Selecione" />
+									<f:selectItems value="#{cadastroVeiculoBean.veiculo.categorias()}"
+										var="categoria" itemLabel="#{categoria.name()}"
+										itemValue="#{categoria}" />
+								</p:selectOneMenu>
+	
+							</p:panelGrid>
+						</p:tab>
+	
+					</p:tabView>
+	
+				</div>
+	
+			</h:form>
+
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
